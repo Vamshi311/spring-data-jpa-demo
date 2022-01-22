@@ -6,6 +6,7 @@ import com.learning.springdatajpademo.service.PostService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -20,7 +21,7 @@ public class PostController {
     }
 
     @PostMapping
-    public PostDto addPost(@RequestBody PostDto postDto) {
+    public PostDto addPost(@Valid @RequestBody PostDto postDto) {
         return postService.addPost(postDto);
     }
 
