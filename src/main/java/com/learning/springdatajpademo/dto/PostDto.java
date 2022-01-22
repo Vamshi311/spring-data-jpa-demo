@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @AllArgsConstructor
@@ -15,7 +17,9 @@ public class PostDto {
 
     private Long id;
 
+    @NotBlank(message = "title must not be blank")
     private String title;
 
+    @NotNull(message = "comments must be provided")
     private List<CommentDto> comments;
 }
